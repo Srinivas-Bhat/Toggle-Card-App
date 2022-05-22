@@ -1,24 +1,41 @@
-import logo from './logo.svg';
+
 import './App.css';
+import Amazon from './components/Amazon';
+import Apple from './components/Apple';
+import Card from './components/Card';
+import {useState} from "react";
+
 
 function App() {
+  const [Toggle, setToggle] = useState(false)
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Card
+          bgcolor= "yellow-color"
+          date="28/10/2020"
+          logo= {<i class="fa-brands fa-amazon"></i>}
+          gift="Amazon Gift"
+          pay="Pay"
+          mode= "Desktop - Mobile"
+      />
+      <Card
+          bgcolor= "white-color"
+          date="17 Sep 2020"
+          logo= {<i class="fa-brands fa-apple"></i>}
+          gift="Apple Gift"
+          pay="Payment"
+          mode= "MacOS - Mobile"
+      />
+
+      <p className='seperator'> *****************************************************************************************************</p>
+
+      
+     
+      <div className='toggle-div'>
+        <button className='toggle-btn' onClick={() => setToggle(!Toggle)}>Toggle</button>
+        {Toggle ? <Amazon/> : <Apple/> }
+      </div>
+    </>
   );
 }
 
